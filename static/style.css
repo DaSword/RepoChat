@@ -1,0 +1,19 @@
+body {
+    background-color: #cceeff; /* Nice blue background color */
+  }
+  
+  .container {
+    text-align: center; /* Center align the content */
+    max-width: 400px; /* Limit the width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding-top: 50px; /* Add some top padding */
+  }
+  
+  .hide {
+    display: none; /* Hide elements with the 'hide' class */
+  }
+  
+  input[type="text"] {
+    width: 300px; /* Adjust the width as desired */
+  }
+  
