@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Repo Chat</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+  </head>
+  <body>
+    <div class="container">
+  <h1>Question Answering App</h1>
+  {% if initialized %}
+    <p id="init-msg">REPO INITIALIZED</p>
+  {% else %}
+    <h2>Initialize</h2>
+    <form id="init-form" method="POST" action="/">
+      <label for="link" id="link-label">Link:</label>
+      <input type="text" id="link" name="link" required><br><br>
+      <label for="api_key" id="api-key-label">API Key:</label>
+      <input type="text" id="api_key" name="api_key" required><br><br>
+      <input type="submit" id="init-btn" value="Initialize">
+    </form>
+  {% endif %}
+  <h2>Query</h2>
+  <form id="query-form" method="POST" action="/">
+    <label for="question">Question:</label>
+    <input type="text" id="question" name="question" required><br><br>
+    <input type="submit" id="query-btn" value="Query">
+  </form>
+  <div>
+    {% if result %}
+      <p>{{ result }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.getElementById('init-form').addEventListener('submit', function() {
+    document.getElementById('link-label').classList.add('hide');
+    document.getElementById('link').classList.add('hide');
+    document.getElementById('api-key-label').classList.add('hide');
+    document.getElementById('api_key').classList.add('hide');
+    document.getElementById('init-btn').classList.add('hide');
+    document.getElementById('init-msg').classList.remove('hide');
+    document.getElementById('initialized').value = 'True';
+  });
+
+  document.getElementById('query-form').addEventListener('submit', function() {
+    document.getElementById('link-label').classList.add('hide');
+    document.getElementById('link').classList.add('hide');
+    document.getElementById('api-key-label').classList.add('hide');
+    document.getElementById('api_key').classList.add('hide');
+    document.getElementById('init-btn').classList.add('hide');
+    document.getElementById('init-msg').classList.add('hide');
+  });
+</script>
+
+
+<!-- 
+    <h1>Question Answering App</h1>
+    <h2>Initialize Model</h2>
+    <form method="POST" action="/">
+      <label for="link">Link:</label>
+      <input type="text" id="link" name="link" required><br><br>
+      <label for="api_key">API Key:</label>
+      <input type="text" id="api_key" name="api_key" required><br><br>
+      <input type="submit" value="Initialize">
+    </form>
+    <h2>Query</h2>
+    <form method="POST" action="/">
+      <label for="question">Question:</label>
+      <input type="text" id="question" name="question" required><br><br>
+      <input type="submit" value="Query">
+    </form>
+    <div>
+      {% if result %}
+        <p>{{ result }}</p>
+      {% endif %}
+    </div> -->
+  </body>
+</html>
